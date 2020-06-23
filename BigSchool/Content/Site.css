@@ -15,19 +15,16 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-.navbar-inverse {
-    background-color: #2711b3;
-    border-color: #080808;
-}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
-/*Courses layout*/
+
 .course{
-    list-style: none;
+    list-style:none;
 }
 .course > li{
     position:relative;
@@ -35,13 +32,24 @@ textarea {
 }
 .course > li .date{
     text-align:center;
-    background-color: #d41d50;
+    background-color:#d41d50;
     color:white;
     width:60px;
     border-radius:8px;
 }
-.course >li .details{
-    position:absolute;
-    top:0;
-    left:70px;
+.course > li .detail{
+   position:absolute;
+   top:0;
+   left:70px;
+}
+/* overide CSS Huynh Khac Duy*/
+.navbar-inverse{
+    background:#d40d50;
+    border-color:#fbf6f6;
+}
+.navbar-inverse .navbar-nav >li >a{
+    color:white;
+}
+.navbar-inverse .navbar-brand{
+    color:white;
 }
