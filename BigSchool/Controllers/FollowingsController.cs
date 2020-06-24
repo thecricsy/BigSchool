@@ -12,7 +12,7 @@ namespace BigSchool.Controllers
 {
     public class FollowingsController : ApiController
     {
-        private readonly ApplicationDbContext _dbContext;
+        private ApplicationDbContext _dbContext;
         public FollowingsController()
         {
             _dbContext = new ApplicationDbContext();

@@ -89,7 +89,7 @@ namespace BigSchool.Controllers
                 Category = course.CategoryID,
                 Place = course.Place,
                 Heading = "Edit Course",
-                Id =  course.Id
+                Id = id
             };
             return View("Create",viewModel);
         }
