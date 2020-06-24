@@ -84,12 +84,12 @@ namespace BigSchool.Controllers
             var viewModel = new CourseViewModel
             {
                 Categories = _dbContext.Categories.ToList(),
-                Date = course.DateTime.ToString("dd/MM/yyyy"),
+                Date = course.DateTime.ToString("dd/M/yyyy"),
                 Time = course.DateTime.ToString("HH:mm"),
                 Category = course.CategoryID,
                 Place = course.Place,
                 Heading = "Edit Course",
-                Id = id
+                Id = course.Id
             };
             return View("Create",viewModel);
         }
