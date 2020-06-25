@@ -12,7 +12,7 @@ namespace BigSchool.Controllers
 {
     public class FollowingsController : ApiController
     {
-        private ApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
         public FollowingsController()
         {
             _dbContext = new ApplicationDbContext();
@@ -31,6 +31,19 @@ namespace BigSchool.Controllers
             _dbContext.Followings.Add(following);
             _dbContext.SaveChanges();
             return Ok();
+        }
+        [HttpDelete]
+        public IHttpActionResult DeleteFollow(string Id)
+        {
+            var userId = User.Identity.GetUserId();
+            var following = _dbContext.Followings.SingleOrDefault(f => f.FollowerId == userId && f.FolloweeId == Id);
+            if (following == null)
+            {
+                return NotFound();
+            }
+            _dbContext.Followings.Remove(following);
+            _dbContext.SaveChanges();
+            return Ok(Id);
         }
     }
 }
