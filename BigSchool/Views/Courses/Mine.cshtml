@@ -8,48 +8,48 @@
 <h2>Mine</h2>
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 @*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LecturerID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Place)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryID)
-        </th>
-        <th></th>
-    </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LecturerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LecturerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Place)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            <a href="#" class="js-cancel-course" data-course-id="@item.Id">Cancel</a>
-        </td>
-    </tr>
-}
-</table>*@
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LecturerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                <a href="#" class="js-cancel-course" data-course-id="@item.Id">Cancel</a>
+            </td>
+        </tr>
+    }
+    </table>*@
 <ul class="course">
     @foreach (var course in Model)
     {
@@ -62,18 +62,19 @@
                     @course.DateTime.ToString("dd")
                 </div>
             </div>
-            <div class="details">
+            <div class="detail">
                 <span class="lecturer">
                     @course.Lecturer.Name
                 </span>
                 <span class="category">
                     @course.Category.Name
                 </span>
-            </div>
-            <div class="action">
-                <a href="@Url.Action("Edit", "Courses", new { id = course.Id})">Edit</a> |
-                <a href="@Url.Action("Details", "Courses", new { id = course.Id})">Details</a> | 
-                <a href="#" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
+
+                <div class="action">
+                    <a href="@Url.Action("Edit", "Courses", new { id = course.Id})">Edit</a> |
+                    <a href="@Url.Action("Details", "Courses", new { id = course.Id})">Details</a> |
+                    <a href="#" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
+                </div>
             </div>
         </li>
     }

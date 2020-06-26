@@ -34,6 +34,19 @@ namespace BigSchool.Controllers
            _dbContext.Attendences.Add(attendence);
            _dbContext.SaveChanges();
            return Ok();
-       }  
+       }
+        [HttpDelete]
+        public IHttpActionResult DeleteAttendance(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var attendance = _dbContext.Attendences.SingleOrDefault(a => a.AttendeeId == userId && a.CourseId == id);
+            if (attendance == null)
+            {
+                return NotFound();
+            }
+            _dbContext.Attendences.Remove(attendance);
+            _dbContext.SaveChanges();
+            return Ok(id);
+        }
     }
 }
